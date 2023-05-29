@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu Layout</title>
+    <link rel="stylesheet" href="layout_eight.css">
+  </head>
+  <body>
+    <nav id="main-menu">
+      <div class="base-ground">
+        <span style="display: inline-block;margin: 10px auto 0; font-size: 22px;">LOGO</span>
+      </div>
+      <input type="checkbox" id="slide-side" class="mark-obj">
+      <ul id="site-map">
+        <input type="radio" id="all-sub-down" name="toggle-act" class="mark-obj">
+        <input type="radio" id="all-sub-up" name="toggle-act" class="mark-obj">
+        <li class="tool-menu" style="--trans-delay: 0;">
+          <label for="all-sub-up" title="All Up" style="color: var(--cl-one);">&#8896;</label>
+        </li>
+        <li style="--trans-delay: 1;">
+          <label for="title-menu-aa">홈</label>
+          <input type="radio" id="title-menu-aa" name="toggle-act" class="mark-obj">
+          <ul>
+            <li><a href="">개요</a></li>
+            <li><a href="">인사말</a></li>
+            <li><a href="">연혁</a></li>
+            <li><a href="">찾아오기</a></li>
+            <li><a href="">연락처</a></li>
+          </ul>
+        </li>
+        <li style="--trans-delay: 2;">
+          <label for="title-menu-bb">역사</label>
+          <input type="radio" id="title-menu-bb" name="toggle-act" class="mark-obj">
+          <ul>
+            <li><a href="">개요</a></li>
+            <li><a href="">구조사</a></li>
+            <li><a href="">근대사</a></li>
+            <li><a href="">현대사</a></li>
+          </ul>
+        </li>
+        <li style="--trans-delay: 3;">
+          <label for="title-menu-cc">모습</label>
+          <input type="radio" id="title-menu-cc" name="toggle-act" class="mark-obj">
+          <ul>
+            <li><a href="">개요</a></li>
+            <li><a href="">건축전</a></li>
+            <li><a href="">건축중</a></li>
+            <li><a href="">건축후</a></li>
+          </ul>
+        </li>
+        <li style="--trans-delay: 4;">
+          <label for="title-menu-dd">소통</label>
+          <input type="radio" id="title-menu-dd" name="toggle-act" class="mark-obj">
+          <ul>
+            <li><a href="">공지</a></li>
+            <li><a href="">방명록</a></li>
+            <li><a href="">묻고 답하기</a></li>
+          </ul>
+        </li>
+        <li class="tool-menu wide-show" style="order: 2; margin-left: auto;">
+          <label for="title-menu-ee">
+            <img src="/images/icon-search.png" alt="search" width="21px" style="vertical-align: middle;">
+          </label>
+          <input type="radio" id="title-menu-ee" name="toggle-act" class="mark-obj">
+          <ul id="title-menu-ee" style="left: -10rem; width: 15.5rem; background: transparent; padding: 5px 0; box-shadow: none;">
+            <li style="border: none;"><input type="search" name="finding" id="top-find" size="20"><button>찾기</button></li>
+          </ul>
+        </li>
+        <li class="tool-menu wide-show" style="order: 2; margin-right: 2rem;">
+          <label for="title-menu-ff">&#8801;</label>
+          <input type="radio" id="title-menu-ff" name="toggle-act" class="mark-obj">
+          <ul style="left: -6rem;">
+            <li><a href="">로그온</a></li>
+            <li><label for="all-sub-down" title="All Down">전체 메뉴</label></li>
+            <li><a href="">설정</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- fixed와 absolute 분리 필요 -->
+      <div class="tool-menu">
+        <label for="slide-side" style="line-height: 2.5rem;">&#8801;</label>
+      </div>
+    </nav>
+    <header>
+      <h1>Menu Layout</h1>
+    </header>
+    <hr>
+    <main>
+      <div class="base">
+        <section>
+          <h2>Title 1</h2>
+          <article>
+            <h3>Title 1-1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!<label style="color: var(--cl-one); font-weight: 700; font-size: 22pt;">&#8896;</label>
+              <div class="ineractive none point">
+                Mobile Pointer
+              </div>
+              <div class="ineractive none port">
+                Mobile Portait
+              </div>
+              <div class="ineractive none land">
+                Mobile landscape
+              </div>
+              <div class="ineractive none combi">
+                Mobile Combination
+              </div>
+              <div class="interactive tap touch">
+                Laptop Touchscreen
+              </div>
+              <div class="interactive tap hover">
+                Laptop Not Hover
+              </div>
+              <div class="interactive tap mouse">
+                Laptop Mouse
+              </div>
+              <div class="interactive hover coarse">
+                Desktop Not Coarse
+              </div>
+              <div class="interactive hover fine">
+                Desktop Fine
+              </div>
+              <div class="interactive hover port">
+                Desktop Portrait
+              </div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!</p>
+          </article>
+          <article>
+            <h3>Title 1-2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!</p>
+          </article>
+        </section>
+        <section>
+          <h2>Title 1</h2>
+          <article>
+            <h3>Title 1-1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!</p>
+
+            </p>
+          </article>
+          <article>
+            <h3>Title 1-2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum assumenda maxime earum repellat non tempore temporibus quasi quos quas maiores minima molestiae officiis facilis, soluta laudantium saepe harum reiciendis aliquam!</p>
+          </p>
+          </article>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
