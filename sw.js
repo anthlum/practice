@@ -2,10 +2,10 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open('video-store').then(function(cache) {
       return cache.addAll([
-      '/anthlum/practice/blob/main/',
-      '/anthlum/practice/blob/main/videoDB.html',
-      '/anthlum/practice/blob/main/videoDB.css',
-      '/anthlum/practice/blob/main/videoDB.js'
+      '/practice/',
+      '/practice/videoDB.html',
+      '/practice/videoDB.css',
+      '/practice/videoDB.js'
     ]);
     })
   );
