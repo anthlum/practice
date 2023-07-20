@@ -92,7 +92,7 @@ console.log(blobMp4, blobWebm, blobMp4.size);
 
 if("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register('/anthlum/practice/edit/main/sw.js')
+    .register('/practice/sw.js')
     .then(() => console.log("Service Worker Registered"));
     //.catch(err => console.log('failed: ', err));
 }
