@@ -2,10 +2,10 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open('video-store').then(function(cache) {
       return cache.addAll([
-      '/mdnproject/',
-      '/mdnproject/videoDB.html',
-      '/mdnproject/videoDB.css',
-      '/mdnproject/videoDB.js'
+      '/anthlum/practice/blob/main/',
+      '/anthlum/practice/blob/main/videoDB.html',
+      '/anthlum/practice/blob/main/videoDB.css',
+      '/anthlum/practice/blob/main/videoDB.js'
     ]);
     })
   );
