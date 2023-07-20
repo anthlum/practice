@@ -10,19 +10,6 @@ const videos = [
 ];
 let db;
 
-// const registSvcWork = async () => {
-//   if('serviceWorker' in navigator) {
-//     let registry = await navigator.serviceWorker.getRegistration();
-//   console.log(registry);
-//     if(!registry) {
-//       registry = await navigator.serviceWorker.register('/serve_worker.js');
-//       console.log('Service Worker registered.');
-//     }
-//   //await updatePushStatus(registry);
-//   }
-// }
-// registSvcWork();
-
 function init() {
   for (const vid of videos) {
     const request = db.transaction(['videos_os']).objectStore('videos_os').get(vid.name);
@@ -90,39 +77,23 @@ console.log(blobMp4, blobWebm, blobMp4.size);
   }
 }
 
-if("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register('/practice/sw.js')
-    .then(() => console.log("Service Worker Registered"));
-    //.catch(err => console.log('failed: ', err));
+const registSvcWork = async () => {
+  if('serviceWorker' in navigator) {
+    let registry = await navigator.serviceWorker.getRegistration();
+  console.log(registry);
+    if(!registry) {
+      await navigator.serviceWorker.register('/practice/sw.js');
+      console.log('Service Worker registered.');
+    }
+  //await updatePushStatus(registry);
+  }
 }
+registSvcWork();
 
+// if("serviceWorker" in navigator) {
+//   navigator.serviceWorker
+//     .register('/practice/sw.js')
+//     .then(() => console.log("Service Worker Registered"));
+     //.catch(err => console.log('failed: ', err));
+//}
 
-// self.addEventListener('activate', (evt) => {
-//   console.log('Service worker is active.');
-// })
-// self.addEventListener('install', (evt) => {
-//   console.log('Install service worker...');
-//   evt.waitUntil(
-//     caches.open('cacheProx')
-//     .then((cache) => cache.addAll([
-//       '/',
-//       '/videoDB.html',
-//       '/videoDB.css',
-//       '/videoDB.js'])
-//       ));
-// });
-// self.addEventListener('fetch', (evt) => {
-//   evt.respondWith(chache.match(evt.request)
-//   .then((response) => {
-//     console.log('Caqhe response the request; '+ evt.request.url);
-//     return response || fetch(evt.request)
-//     .then((reply) => caches.open('cacheProx')
-//       .then((cache) => {
-//         cache.put(evt.request, reply.clone());
-//         console.log('Cache new resource: ' + evt.request.url);
-//         return reply;
-//       }));
-//   })
-//   );
-// });
