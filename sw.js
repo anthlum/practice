@@ -1,7 +1,7 @@
 
 self.addEventListener('activate', (evt) => {
   console.log('Service worker is active.');
-})
+});
 self.addEventListener('install', (evt) => {
   console.log('Install service worker...');
   evt.waitUntil(
@@ -18,5 +18,6 @@ self.addEventListener('fetch', (evt) => {
   .then((response) => {
     console.log('Cache response the request; '+ evt.request.url);
     return response || fetch(evt.request);
-  });
+  })
+  );
 });
