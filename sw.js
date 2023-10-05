@@ -11,10 +11,12 @@ self.addEventListener('install', (evt) => {
   // eventTarget > Worker(GlobalScope) > ServiceWorker(GlobalScope) = self > clients
   console.log('Install service worker...');
   evt.waitUntil(
+    console.log(caches);
     caches.open(cacheName)
     // cacheStorage(caches) method - open(), match(), delete(), has(), keys()
     // make a named cacheInstace in a cacheStorage
     .then((cache) => {
+      console.log(cache);
       cache.addAll(shellFiles);})
     // cacheInstance method - add(), addAll(), delete(), keys(), match(), matchAll(), put()
   );
