@@ -15,8 +15,7 @@ self.addEventListener('install', (evt) => {
     // cacheStorage(caches) method - open(), match(), delete(), has(), keys()
     // make a named cacheInstace in a cacheStorage
     .then((cache) => {
-      console.log(cache);
-      return cache.addAll(shellFiles);})
+     return cache.addAll(shellFiles);})
     // cacheInstance method - add(), addAll(), delete(), keys(), match(), matchAll(), put()
   );
 });
@@ -32,15 +31,16 @@ self.addEventListener('activate', (evt) => {
   console.log('Service worker is active.');
 })
 self.addEventListener('fetch', (evt) => {
+      console.log(caches.match(evt.request));
   evt.respondWith(caches.match(evt.request)
   .then((response) => {
-    console.log('Cached resource: ' + evt.request.url);
+    console.log('Cached resource: ' + evt.request.url, response);
     return(response ||
       fetch(evt.request)
       .then((res) => {
         caches.open(cacheName)
         .then((cache) => {
-          console.log('New resources: ' + evt.rquest.url);
+          console.log('New resources: ' + evt.rquest.url, cache);
           cache.put(evt.request, res.clone());
           return res;
         });
