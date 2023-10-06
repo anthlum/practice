@@ -31,7 +31,7 @@ self.addEventListener('activate', (evt) => {
   console.log('Service worker is active.');
 })
 self.addEventListener('fetch', (evt) => {
-      console.log(caches.match(evt.request));
+      console.log('cache match :' + caches.match(evt.request));
   evt.respondWith(caches.match(evt.request)
   .then((response) => {
     console.log('Cached resource: ' + evt.request.url, response);
