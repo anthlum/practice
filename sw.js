@@ -9,9 +9,8 @@ const shellFiles = [
 ];
 self.addEventListener('install', (evt) => {
   // eventTarget > Worker(GlobalScope) > ServiceWorker(GlobalScope) = self > clients
-  console.log('Install service worker...');
+  console.log('Install service worker...', caches);
   evt.waitUntil(
-    console.log(caches);
     caches.open(cacheName)
     // cacheStorage(caches) method - open(), match(), delete(), has(), keys()
     // make a named cacheInstace in a cacheStorage
