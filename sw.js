@@ -40,8 +40,9 @@ self.addEventListener('fetch', (evt) => {
       .then((res) => {
         caches.open(cacheName)
         .then((cache) => {
+          cloneRes = res.clone();
           console.log('New resources: ' + evt.rquest.url, cache);
-          cache.put(evt.request, res.clone());
+          cache.put(evt.request, cloneRes);
           return res;
         });
       }));
