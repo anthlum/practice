@@ -15,8 +15,8 @@ self.addEventListener('install', (evt) => {
     // cacheStorage(caches) method - open(), match(), delete(), has(), keys()
     // make a named cacheInstace in a cacheStorage
     .then((cache) => {
-    // console.log(cache);
-      cache.addAll(shellFiles);})
+      console.log(cache.clone());
+      return cache.addAll(shellFiles);})
     // cacheInstance method - add(), addAll(), delete(), keys(), match(), matchAll(), put()
   );
 });
