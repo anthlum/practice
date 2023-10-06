@@ -2,10 +2,10 @@
 const version = '1.0';
 const cacheName = `cacheStorage_${version}`;
 const shellFiles = [
-  '/mdnproject/',
-  '/mdnproject/web_storage.html',
-  '/mdnproject/web_storage.css',
-  '/mdnproject/web_storage.js'
+  '/practice/',
+  '/practice/web_storage.html',
+  '/practice/web_storage.css',
+  '/practice/web_storage.js'
 ];
 self.addEventListener('install', (evt) => {
   // eventTarget > Worker(GlobalScope) > ServiceWorker(GlobalScope) = self > clients
