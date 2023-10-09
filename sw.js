@@ -20,7 +20,6 @@ self.addEventListener('install', (evt) => {
   );
 });
 self.addEventListener('activate', (evt) => {
-  console.log(evt.request.url);
   evt.waitUntil(
     caches.keys()
     .then((keys) => {
@@ -32,6 +31,7 @@ self.addEventListener('activate', (evt) => {
   console.log('Service worker is active.');
 })
 self.addEventListener('fetch', (evt) => {
+      console.log(evt.request.url);
       console.log('cache match :' + caches.match(evt.request));
   evt.respondWith(caches.match(evt.request)
   .then((response) => {
@@ -42,7 +42,7 @@ self.addEventListener('fetch', (evt) => {
         caches.open(cacheName)
         .then((cache) => {
           cloneRes = res.clone();
-          console.log('New resources: ' + evt.rquest.url, cache);
+          //console.log('New resources: ' + evt.rquest.url, cache);
           cache.put(evt.request, cloneRes);
           return res;
         });
