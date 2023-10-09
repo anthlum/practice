@@ -33,7 +33,7 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
       console.log(evt.request.url);
       console.log('cache match :' + caches.match(evt.request));
-  evt.respondWith(caches.match(evt.request)
+/*  evt.respondWith(caches.match(evt.request)
   .then((response) => {
     console.log('Cached resource: ' + evt.request.url);
     return(response ||
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (evt) => {
           return res;
         });
       }));
-  }));
+  })); */
 });
 
 // self.addEventListener('install', e => {
