@@ -35,7 +35,7 @@ self.addEventListener('fetch', (evt) => {
       console.log('cache match :' + caches.match(evt.request));
   evt.respondWith(caches.match(evt.request)
   .then((response) => {
-    console.log('Cached resource: ' + evt.request.url, response);
+    console.log('Cached resource: ' + evt.request.url);
     return(response ||
       fetch(evt.request)
       .then((res) => {
