@@ -20,6 +20,7 @@ self.addEventListener('install', (evt) => {
   );
 });
 self.addEventListener('activate', (evt) => {
+  console.log(evt.request.url);
   evt.waitUntil(
     caches.keys()
     .then((keys) => {
