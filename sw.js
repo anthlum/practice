@@ -34,19 +34,19 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
       console.log(evt.request.url);
       console.log('cache match :' + caches.match(evt.request));
+  if(evt.request.url.indexOf('anthlum.github.io') < 0) return;
   evt.respondWith(caches.match(evt.request)
   .then((response) => {
     //console.log('Cached resource: ' + evt.request.url);
     return(response ||
       fetch(evt.request)
       .then((res) => {
-        if(evt.request.url.indexOf('anthlum.github.io') > 0) {
-          caches.open(cacheName)
-          .then((cache) => {
-            cloneRes = res.clone();
-            //console.log('New resources: ' + evt.rquest.url, cache);
-            cache.put(evt.request, cloneRes); }
-          return res;
+        caches.open(cacheName)
+        .then((cache) => {
+          cloneRes = res.clone();
+          //console.log('New resources: ' + evt.rquest.url, cache);
+          cache.put(evt.request, cloneRes);
+        return res;
         });
       }));
   }));
