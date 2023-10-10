@@ -7,6 +7,7 @@ const shellFiles = [
   '/practice/web_storage.css',
   '/practice/web_storage.js'
 ];
+console.log(self, window.self);
 self.addEventListener('install', (evt) => {
   // eventTarget > Worker(GlobalScope) > ServiceWorker(GlobalScope) = self > clients
   console.log('Install service worker...', caches);
@@ -39,11 +40,12 @@ self.addEventListener('fetch', (evt) => {
     return(response ||
       fetch(evt.request)
       .then((res) => {
-        caches.open(cacheName)
-        .then((cache) => {
-          cloneRes = res.clone();
-          //console.log('New resources: ' + evt.rquest.url, cache);
-          cache.put(evt.request, cloneRes);
+        if(evt.request.url.indexOf('anthlum.github.io') > 0) {
+          caches.open(cacheName)
+          .then((cache) => {
+            cloneRes = res.clone();
+            //console.log('New resources: ' + evt.rquest.url, cache);
+            cache.put(evt.request, cloneRes); }
           return res;
         });
       }));
