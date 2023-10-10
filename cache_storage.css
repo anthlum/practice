@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  width: 100%;
+  background-image: url("images/desk.png");
+  background-size: 100vw 100vh; 
+  overscroll-behavior: hidden;
+  overflow: hidden;
+}
+.drag-base {
+  position: relative;
+  /* top: -100vh;
+  left: -100vw; */
+}
+.draggable{
+position: absolute;
+width: 20%;
+transition: transform 0.2s;
+}
+.draggable.aa {
+  top: 10px;
+  left: 10px;
+}
+.draggable.bb {
+  top: 50px;
+  left: 50px;
+}
+.draggable.cc {
+  top: 100px;
+  left: 100px;
+}
+.draggable.dd {
+  top: 150px;
+  left: 150px;
+}
+.draggable.ee {
+  top: 200px;
+  left: 200px;
+}
+/* .draggable:hover {
+  filter: grayscale(50%);
+  transform: scale(0.8);
+} */
+#output {
+  position: fixed;
+  display: block;
+  margin-left: calc(50% - 100px) ;
+  bottom: 100px;
+  width: 200px;
+  line-height: 1.7;
+  background-color: #965;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+#backward:hover {
+  color: #5af;
+}
