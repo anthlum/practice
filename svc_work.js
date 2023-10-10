@@ -6,7 +6,6 @@ const shellFiles = [
   '/practice/cache_storage.html',
   '/practice/cache_storage.css',
   '/practice/cache_storage.js',
-  '/practice/images/',
   '/practice/images/desk.png',
   '/practice/images/pic1.jpg',
   '/practice/images/pic2.jpg',
