@@ -7,7 +7,7 @@ const shellFiles = [
   '/practice/web_storage.css',
   '/practice/web_storage.js'
 ];
-console.log(self, window.self);
+console.log(self);
 self.addEventListener('install', (evt) => {
   // eventTarget > Worker(GlobalScope) > ServiceWorker(GlobalScope) = self > clients
   console.log('Install service worker...', caches);
