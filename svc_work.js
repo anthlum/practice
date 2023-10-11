@@ -15,7 +15,7 @@ const shellFiles = [
 ];
 const installSvc = async () => {
   const cache = await caches.open(cacheName);
-  return cache.addAll(shellFiles);
+  await cache.addAll(shellFiles);
 }
 const activeSvc = async () => {
   const nameSet = await caches.keys();
@@ -34,15 +34,15 @@ const fetchSvc = async (evt) => {
   return reply; 
 }
 self.addEventListener('install', (evt) => {
-console.log('Install service worker...', cacheName);
-evt.waitUntil(installSvc());
+  console.log('Install service worker...', cacheName);
+  evt.waitUntil(installSvc());
 });
 self.addEventListener('activate', (evt) => {
-evt.waitUntil(activeSvc());
-console.log('Service worker is active.');
+  evt.waitUntil(activeSvc());
+  console.log('Service worker is active.');
 })
-self.addEventListener('fetch', (evt) => {
-evt.respondWith(fetchSvc(evt));
+  self.addEventListener('fetch', (evt) => {
+  evt.respondWith(fetchSvc(evt));
 });
 
 
