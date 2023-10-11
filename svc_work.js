@@ -55,4 +55,4 @@ const fetchSvc = (evt) => {
 }
 self.addEventListener('install', installSvc);
 self.addEventListener('activate', activeSvc);
-self.addEventListener('fetch', fetchSvc));
+self.addEventListener('fetch', fetchSvc);
