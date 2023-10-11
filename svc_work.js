@@ -19,7 +19,7 @@ const installSvc = (evt) => {
       const cache = await caches.open(cacheName);
       return cache.addAll(shellFiles);
     }
-    catch { console.log('error during installing');
+    catch(err) { console.log('error during installing');
     }
   });
   console.log('Install service worker...', cacheName);
@@ -35,7 +35,7 @@ const activeSvc = (evt) => {
         }}
       ));
       }
-    catch { console.log('error during activing')
+    catch(err) { console.log('error during activing')
     }});
   }
 const fetchSvc = (evt) => {
@@ -49,7 +49,7 @@ const fetchSvc = (evt) => {
       const reply = await fetch(evt.request);
       return reply;
     }
-    catch { console.log('error during activing', evt.request.url);
+    catch(err) { console.log('error during activing', evt.request.url);
     }
   });
 }
