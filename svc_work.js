@@ -17,34 +17,32 @@ function installSvc(evt) {
   evt.waitUntil(async () => {
       const cache = await caches.open(cacheName);
       return cache.addAll(shellFiles);
-    }
-  });
+    });
   console.log('Install service worker...', cacheName);
 }
 function activeSvc(evt) {
   evt.waitUntil(async () => {
-      const nameSet = await caches.keys();
-      //console.log('Service worker is active.');
-      return Promise.all(nameSet.map((keyName) => {
-        if(keyName.indexOf(cacheName) < 0) {
-          console.log(keyName, nameSet);
-        }}
-      ));
+    const nameSet = await caches.keys();
+    return Promise.all(nameSet.map((keyName) => {
+      if(keyName.indexOf(cacheName) < 0) {
+        console.log(keyName, nameSet);
       }
+    }));
   });
+  console.log('Service worker is active.');
 }
 function fetchSvc(evt) {
   evt.respondWith(async () => {
-      const response = await caches.match(evt.request);
-      if(response) {
-        console.log('Cached resource: ' + evt.request.url);
-        return response; }
-      console.log('New resources: ' + evt.rquest.url);
-      const reply = await fetch(evt.request);
-      return reply;
-    }
+    const response = await caches.match(evt.request);
+    if(response) {
+      console.log('Cached resource: ' + evt.request.url);
+      return response; }
+    console.log('New resources: ' + evt.rquest.url);
+    const reply = await fetch(evt.request);
+    return reply;
   });
 }
 self.addEventListener('install', installSvc);
 self.addEventListener('activate', activeSvc);
 self.addEventListener('fetch', fetchSvc);
+
