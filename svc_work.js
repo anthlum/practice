@@ -15,18 +15,14 @@ const shellFiles = [
 ];
 function installSvc(evt) {
   evt.waitUntil(async () => {
-    try {
       const cache = await caches.open(cacheName);
       return cache.addAll(shellFiles);
-    }
-    catch(err) { console.log('error during installing');
     }
   });
   console.log('Install service worker...', cacheName);
 }
 function activeSvc(evt) {
   evt.waitUntil(async () => {
-    try {
       const nameSet = await caches.keys();
       //console.log('Service worker is active.');
       return Promise.all(nameSet.map((keyName) => {
@@ -35,12 +31,10 @@ function activeSvc(evt) {
         }}
       ));
       }
-    catch(err) { console.log('error during activing')
-    }});
-  }
+  });
+}
 function fetchSvc(evt) {
   evt.respondWith(async () => {
-    try {
       const response = await caches.match(evt.request);
       if(response) {
         console.log('Cached resource: ' + evt.request.url);
@@ -48,8 +42,6 @@ function fetchSvc(evt) {
       console.log('New resources: ' + evt.rquest.url);
       const reply = await fetch(evt.request);
       return reply;
-    }
-    catch(err) { console.log('error during activing', evt.request.url);
     }
   });
 }
