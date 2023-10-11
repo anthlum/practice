@@ -28,7 +28,7 @@ const activeSvc = (evt) => {
   evt.waitUntil(async () => {
     try {
       const nameSet = await caches.keys();
-      console.log('Service worker is active.');
+      //console.log('Service worker is active.');
       return Promise.all(nameSet.map((keyName) => {
         if(keyName.indexOf(cacheName) < 0) {
           console.log(keyName, nameSet);
