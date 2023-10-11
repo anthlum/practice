@@ -14,7 +14,6 @@ const shellFiles = [
   '/practice/images/pic5.jpg'
 ];
 const installSvc = (evt) => {
-  console.log('Install service worker...', cacheName);
   evt.waitUntil(async () => {
     try {
       const cache = await caches.open(cacheName);
@@ -22,7 +21,8 @@ const installSvc = (evt) => {
     }
     catch { console.log('error during installing');
     }
-  }); 
+  });
+  console.log('Install service worker...', cacheName);
 }
 const activeSvc = (evt) => {
   evt.waitUntil(async () => {
