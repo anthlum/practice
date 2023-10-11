@@ -1,4 +1,4 @@
-vt// Service Worker Proxy
+// Service Worker Proxy
 const version = '1.0';
 const cacheName = `cacheWorker_${version}`;
 const shellFiles = [
