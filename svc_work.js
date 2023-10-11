@@ -1,4 +1,4 @@
-// Service Worker Proxy
+vt// Service Worker Proxy
 const version = '1.0';
 const cacheName = `cacheWorker_${version}`;
 const shellFiles = [
@@ -24,7 +24,7 @@ const installSvc = (evt) => {
     }
   }); 
 }
-const activeSvc = () => {
+const activeSvc = (evt) => {
   evt.waitUntil(async () => {
     try {
       const nameSet = await caches.keys();
