@@ -16,7 +16,7 @@ const shellFiles = [
 function installSvc(evt) {
   evt.waitUntil(async () => {
       const cache = await caches.open(cacheName);
-      return cache.addAll(shellFiles);
+      cache.addAll(shellFiles);
     });
   console.log('Install service worker...', cacheName);
 }
