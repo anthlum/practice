@@ -13,7 +13,7 @@ const shellFiles = [
   '/practice/images/pic4.jpg',
   '/practice/images/pic5.jpg'
 ];
-const installSvc = (evt) => {
+function installSvc(evt) {
   evt.waitUntil(async () => {
     try {
       const cache = await caches.open(cacheName);
@@ -24,7 +24,7 @@ const installSvc = (evt) => {
   });
   console.log('Install service worker...', cacheName);
 }
-const activeSvc = (evt) => {
+function activeSvc(evt) {
   evt.waitUntil(async () => {
     try {
       const nameSet = await caches.keys();
@@ -38,7 +38,7 @@ const activeSvc = (evt) => {
     catch(err) { console.log('error during activing')
     }});
   }
-const fetchSvc = (evt) => {
+function fetchSvc(evt) {
   evt.respondWith(async () => {
     try {
       const response = await caches.match(evt.request);
