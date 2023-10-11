@@ -31,11 +31,11 @@ const activeSvc = () => {
       console.log('Service worker is active.');
       return Promise.all(nameSet.map((keyName) => {
         if(keyName.indexOf(cacheName) < 0) {
-          console.log(keyName);
+          console.log(keyName, nameSet);
         }}
       ));
       }
-    catch { console.log('error during activing', nameSet)
+    catch { console.log('error during activing')
     }});
   }
 const fetchSvc = (evt) => {
@@ -53,6 +53,6 @@ const fetchSvc = (evt) => {
     }
   });
 }
-self.addEventListener('install', installSvc(evt));
-self.addEventListener('activate', activeSvc());
-self.addEventListener('fetch', fetchSvc(evt));
+self.addEventListener('install', installSvc);
+self.addEventListener('activate', activeSvc);
+self.addEventListener('fetch', fetchSvc));
