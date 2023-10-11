@@ -16,14 +16,14 @@ const shellFiles = [
 function installSvc(evt) {
   evt.waitUntil(async () => {
       const cache = await caches.open(cacheName);
-      await cache.addAll(shellFiles);
+      return await cache.addAll(shellFiles);
     });
   console.log('Install service worker...', cacheName);
 }
 function activeSvc(evt) {
   evt.waitUntil(async () => {
     const nameSet = await caches.keys();
-    return Promise.all(nameSet.map((keyName) => {
+    return await Promise.all(nameSet.map((keyName) => {
       if(keyName.indexOf(cacheName) < 0) {
         console.log(keyName, nameSet);
       }
