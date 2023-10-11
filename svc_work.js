@@ -1,6 +1,6 @@
 // Service Worker Proxy
 const version = '1.0';
-const cacheName = `cacheWorker_${version}`;
+const cacheName = `cacheSvcWk_${version}`;
 const shellFiles = [
   '/practice/',
   '/practice/cache_storage.html',
