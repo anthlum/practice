@@ -19,18 +19,22 @@ const installSvc = async () => {
 }
 const activeSvc = async () => {
   const nameSet = await caches.keys();
-  return Promise.all(nameSet.map((keyName) => {
+  nameSet.map((keyName) => {
     if(keyName.indexOf(cacheName) < 0) console.log(keyName)
-  }));
+  });
 }
 const fetchSvc = async (evt) => {
   console.log(evt.request.url);
-  const response = await caches.match(evt.request);
+  const cache = caches.open(cacheName);
+  const response = await cache.match(evt.request);
   if(response) {
     console.log('Cached resource: ' + evt.request.url);
     return response; }
   console.log('New resources: ' + evt.rquest.url);
   const reply = await fetch(evt.request);
+  if(!request.url.match(/^(http|https):\/\//)){
+    return;
+  }
   return reply; 
 }
 self.addEventListener('install', (evt) => {
