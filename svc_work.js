@@ -25,7 +25,7 @@ const activeSvc = async () => {
 }
 const fetchSvc = async (evt) => {
   console.log(evt.request.url);
-  const cache = caches.open(cacheName);
+  const cache = await caches.open(cacheName);
   const response = await cache.match(evt.request);
   if(response) {
     console.log('Cached resource: ' + evt.request.url);
