@@ -30,7 +30,7 @@ const fetchSvc = async (evt) => {
   if(response) {
     console.log('Cached resource: ' + evt.request.url);
     return response; }
-  console.log('New resources: ' + evt.rquest.url);
+  console.log('New resources: ' + evt.request.url);
   const reply = await fetch(evt.request);
   if(!request.url.match(/^(http|https):\/\//)){
     return;
