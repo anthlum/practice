@@ -17,13 +17,13 @@ self.addEventListener('install', (evt) => {
   console.log('Install service worker...', cacheName);
   evt.waitUntil(async () => {
     const cache = await caches.open(cacheName);
-    await cache.addAll(shellFiles);
+    return await cache.addAll(shellFiles);
   });
 });
 self.addEventListener('activate', (evt) => {
   evt.waitUntil(async () => {
     const nameSet = await caches.keys();
-    nameSet.map((keyName) => { // return Promise.all()
+    return nameSet.map((keyName) => { // return Promise.all()
       if(keyName.indexOf(cacheName) < 0) console.log(keyName, nameSet)
     });
   });
