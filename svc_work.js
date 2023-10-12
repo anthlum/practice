@@ -13,14 +13,14 @@ const shellFiles = [
   '/practice/images/pic4.jpg',
   '/practice/images/pic5.jpg'
 ];
-const installSvc = (evt) => {
+self.addEventListener('install', (evt) => {
   console.log('Install service worker...', cacheName);
   evt.waitUntil(async () => {
     const cache = await caches.open(cacheName);
     await cache.addAll(shellFiles);
   });
-}
-const activeSvc = (evt) => {
+});
+self.addEventListener('activate', (evt) => {
   evt.waitUntil(async () => {
     const nameSet = await caches.keys();
     nameSet.map((keyName) => { // return Promise.all()
@@ -28,8 +28,8 @@ const activeSvc = (evt) => {
     });
   });
   console.log('Service worker is active.');
-}
-const fetchSvc = (evt) => {
+});
+self.addEventListener('fetch', (evt) => {
   if(evt.request.url.indexOf('http') < 0) return;
   evt.respondWith(async (evt) => {
     const cache = await caches.open(cacheName);
@@ -42,7 +42,4 @@ const fetchSvc = (evt) => {
     // await cache.put(evt.request, reply.clone());
     return reply; 
   });
-}
-self.addEventListener('install', installSvc);
-self.addEventListener('activate', activeSvc);
-self.addEventListener('fetch', fetchSvc);
+});
