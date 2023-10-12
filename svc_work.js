@@ -24,7 +24,6 @@ const activeSvc = async () => {
   });
 }
 const fetchSvc = async (evt) => {
-  if(evt.request.url.indexOf('http') < 0) return;
   const cache = await caches.open(cacheName);
   const response = await cache.match(evt.request);
   if(response) {
@@ -44,7 +43,6 @@ self.addEventListener('activate', (evt) => {
   console.log('Service worker is active.');
 })
   self.addEventListener('fetch', (evt) => {
+  if(evt.request.url.indexOf('http') < 0) return;
   evt.respondWith(fetchSvc(evt));
 });
-
-
