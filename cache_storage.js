@@ -8,7 +8,7 @@
 const registSvcWork = async () => {
   if('serviceWorker' in navigator) {
     const registry = await navigator.serviceWorker.getRegistration();
-  console.log(registry.scope);
+  console.log(registry);
     if(!registry) {
       registry = await navigator.serviceWorker.register('/practice/svc_work.js');
       console.log('Service Worker registered.');
