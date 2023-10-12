@@ -24,7 +24,7 @@ const activeSvc = async () => {
   });
 }
 const fetchSvc = async (evt) => {
-  if(!request.url.match(/^(http|https):\/\//)) return;
+  if(!evt.request.url.match(/^(http|https):\/\//)) return;
   const cache = await caches.open(cacheName);
   const response = await cache.match(evt.request);
   if(response) {
