@@ -41,5 +41,5 @@ console.log(cache.keys());
     const reply = await fetch(evt.request);
     // await cache.put(evt.request, reply.clone());
     return reply; 
-  })());
+  })(evt));
 });
