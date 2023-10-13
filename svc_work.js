@@ -32,8 +32,7 @@ self.addEventListener('activate', (evt) => {
 self.addEventListener('fetch', (evt) => {
   if(evt.request.url.indexOf('http') < 0) return;
   evt.respondWith((async (evt) => {
-    const cache = await caches.open(cacheName);
-    const response = await cache.match(evt.request);
+    const response = await caches.match(evt.request);
 console.log(cache.keys());
     if(response) {
       console.log('Cached resource: ' + evt.request.url);
@@ -42,5 +41,5 @@ console.log(cache.keys());
     const reply = await fetch(evt.request);
     // await cache.put(evt.request, reply.clone());
     return reply; 
-  })(),);
+  })());
 });
