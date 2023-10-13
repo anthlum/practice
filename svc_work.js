@@ -17,6 +17,7 @@ self.addEventListener('install', (evt) => {
   console.log('Install service worker...', cacheName);
   evt.waitUntil(async () => {
     const cache = await caches.open(cacheName);
+console.log(shellFiles);
     return await cache.addAll(shellFiles);
   });
 });
