@@ -33,7 +33,6 @@ self.addEventListener('fetch', (evt) => {
   if(evt.request.url.indexOf('http') < 0) return;
   evt.respondWith((async (evt) => {
     const response = await caches.match(evt.request);
-console.log(cache.keys());
     if(response) {
       console.log('Cached resource: ' + evt.request.url);
       return response; }
