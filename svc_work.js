@@ -14,12 +14,13 @@ const shellFiles = [
   '/practice/images/pic5.jpg'
 ];
 self.addEventListener('install', (evt) => {
+  try {
   console.log('Install service worker...', cacheName);
   evt.waitUntil(async () => {
     const cache = await caches.open(cacheName);
-console.log(shellFiles);
     return await cache.addAll(shellFiles);
   });
+  } catch(err) {console.log(err);}
 });
 self.addEventListener('activate', (evt) => {
   evt.waitUntil(async () => {
