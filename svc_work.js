@@ -14,26 +14,24 @@ const shellFiles = [
   '/practice/images/pic5.jpg'
 ];
 self.addEventListener('install', (evt) => {
-  try {
   console.log('Install service worker...', cacheName);
-  evt.waitUntil(async () => {
+  evt.waitUntil((async () => {
     const cache = await caches.open(cacheName);
     return await cache.addAll(shellFiles);
-  });
-  } catch(err) {console.log(err);}
+  })(),);
 });
 self.addEventListener('activate', (evt) => {
-  evt.waitUntil(async () => {
+  evt.waitUntil((async () => {
     const nameSet = await caches.keys();
     return nameSet.map((keyName) => { // return Promise.all()
       if(keyName.indexOf(cacheName) < 0) console.log(keyName, nameSet)
-    });
+    })(),);
   });
   console.log('Service worker is active.');
 });
 self.addEventListener('fetch', (evt) => {
   if(evt.request.url.indexOf('http') < 0) return;
-  evt.respondWith(async (evt) => {
+  evt.respondWith((async (evt) => {
     const cache = await caches.open(cacheName);
     const response = await cache.match(evt.request);
 console.log(cache.keys());
@@ -44,5 +42,5 @@ console.log(cache.keys());
     const reply = await fetch(evt.request);
     // await cache.put(evt.request, reply.clone());
     return reply; 
-  });
+  })(),);
 });
