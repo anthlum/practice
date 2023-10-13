@@ -25,8 +25,8 @@ self.addEventListener('activate', (evt) => {
     const nameSet = await caches.keys();
     return nameSet.map((keyName) => { // return Promise.all()
       if(keyName.indexOf(cacheName) < 0) console.log(keyName, nameSet)
-    })(),);
-  });
+    })
+  })(),);
   console.log('Service worker is active.');
 });
 self.addEventListener('fetch', (evt) => {
